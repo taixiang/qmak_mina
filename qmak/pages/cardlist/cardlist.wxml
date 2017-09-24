@@ -1,0 +1,19 @@
+<!--pages/cradlist/cradlist.wxml-->
+<view wx:for="{{objectArray}}" wx:for-index="idx" wx:for-item="itemName" wx:key="id">
+  <view class='list_item'>
+    <view class='title_container'>
+      <text class='txt_num'>NO.{{idx+1}}</text>
+      <text class='txt_name'>信用卡</text>
+      <text class='txt_apply'>在线申请</text>
+    </view>
+
+    <view class='label_container'>
+        <text class='txt_label'>标准，魅力，女人花标准</text>
+    </view>
+    <view class='desc_container'>
+        <image class='icon'></image>
+        <text>2222</text>
+    </view>
+    <view class='line_view'></view>
+  </view>
+</view>

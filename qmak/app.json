@@ -1,12 +1,37 @@
 {
-  "pages":[
+  "pages": [
+    "pages/welcome/welcome",
+    "pages/home/home",
+    "pages/notice/notice",
+    "pages/me/me",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/cardlist/cardlist",
+    "pages/apply/apply"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "全民爱卡",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "black",
+    "selectedColor": "#3cc51f",
+    "backgroundColor": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "贷款分类"
+      },
+      {
+        "pagePath": "pages/notice/notice",
+        "text": "通知公告"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的记录"
+      }
+    ]
   }
 }

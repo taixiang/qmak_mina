@@ -1,0 +1,5 @@
+<!--pages/welcome/welcome.wxml-->
+
+   <view class="wel_container" >
+    <image class='img' mode='scaleToFill' src="../../image/banner.jpg"></image>
+  </view> 

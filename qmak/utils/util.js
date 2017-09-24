@@ -14,6 +14,20 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const windowMsg = () => {
+  var winSize = {};
+  wx.getSystemInfo({
+    success: function (res) {
+      winSize.winWidth = res.windowWidth;
+      winSize.winHeight = res.windowHeight;
+
+    },
+  })
+  console.log(winSize)
+  return winSize;
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  windowMsg: windowMsg
 }

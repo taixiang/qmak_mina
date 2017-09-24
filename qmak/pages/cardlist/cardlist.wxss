@@ -1,0 +1,63 @@
+/* pages/cardlist/cardlist.wxss */
+
+.title_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+
+}
+
+.txt_num {
+  color: #fff;
+  background-color: #f90;
+  padding: 10rpx;
+}
+
+.txt_name {
+  margin-left: 20rpx;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.txt_apply {
+  border: 1px solid #f00;
+  border-radius: 5px;
+  color: #f00;
+  padding: 5rpx 50rpx 5rpx 50rpx;
+}
+
+.label_container {
+   margin-top: 10rpx; 
+   margin-bottom: 10rpx; 
+}
+
+.txt_label {
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  font-size: 32rpx;
+}
+
+.desc_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.line_view {
+  height: 2rpx;
+  background-color: #dfdfdf;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+}

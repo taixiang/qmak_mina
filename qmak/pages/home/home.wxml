@@ -1,0 +1,20 @@
+<!--pages/home/home.wxml-->
+<view class='home'>
+  <view class='credit_card' bindtap='tocardlist'>
+    <image class='card_img' src='../../image/x1.png'></image>
+    <view class='card_txt'>
+      <text>信用卡</text>
+      <text>Credit Card</text>
+    </view>
+    <image class='arrow_img' src='../../image/next.png'></image>
+  </view>
+
+<view class='net_platform'>
+    <image class='card_img' src='../../image/x2.png'></image>
+    <view class='card_txt'>
+      <text>网络平台贷款</text>
+      <text>Network Platform Loan</text>
+    </view>
+    <image class='arrow_img' src='../../image/next.png'></image>
+  </view>
+</view>
