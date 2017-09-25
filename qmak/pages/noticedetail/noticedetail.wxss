@@ -1,6 +1,6 @@
-/* pages/notice/notice.wxss */
+/* pages/noticedetail/noticedetail.wxss */
 
-.list_item {
+.detail {
   display: flex;
   flex-direction: column;
   padding-top: 30rpx;
@@ -34,12 +34,5 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-}
-
-.line_view_bottom {
-  height: 10rpx;
-  background-color: #dfdfdf;
-  margin-bottom: 10rpx;
-  margin-top: 10rpx;
 }
 

@@ -9,7 +9,7 @@
     <image class='arrow_img' src='../../image/next.png'></image>
   </view>
 
-<view class='net_platform'>
+<view class='net_platform' bindtap='toapply'>
     <image class='card_img' src='../../image/x2.png'></image>
     <view class='card_txt'>
       <text>网络平台贷款</text>

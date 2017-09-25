@@ -30,7 +30,6 @@ Page({
   onShow: function () {
     
       setTimeout(()=>{
-        console.log("--------=")
         // wx.navigateTo({
         //   url: '../home/home',
         // })

@@ -7,7 +7,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/cardlist/cardlist",
-    "pages/apply/apply"
+    "pages/apply/apply",
+    "pages/noticedetail/noticedetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,21 +17,27 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "black",
+    "color": "#707070",
     "selectedColor": "#3cc51f",
-    "backgroundColor": "white",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "贷款分类"
+        "text": "贷款分类",
+        "iconPath":"image/home_un.png",
+        "selectedIconPath":"image/home.png"
       },
       {
         "pagePath": "pages/notice/notice",
-        "text": "通知公告"
+        "text": "通知公告",
+        "iconPath": "image/notice_un.png",
+        "selectedIconPath": "image/notice.png"
       },
       {
         "pagePath": "pages/me/me",
-        "text": "我的记录"
+        "text": "我的记录",
+        "iconPath": "image/me_un.png",
+        "selectedIconPath": "image/me.png"
       }
     ]
   }

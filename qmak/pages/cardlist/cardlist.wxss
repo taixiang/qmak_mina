@@ -33,15 +33,22 @@
    margin-top: 10rpx; 
    margin-bottom: 10rpx; 
 }
-
+.list_item{
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx
+}
 .txt_label {
   color: #999;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
   padding-left: 40rpx;
   padding-right: 40rpx;
-  font-size: 32rpx;
+  font-size: 28rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+
 }
 
 .desc_container {
