@@ -1,23 +1,19 @@
 // pages/cradlist/cradlist.js
+var constant = require('../../utils/constant');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    objectArray: [
-      { id: 5, unique: 'unique_5' },
-      { id: 4, unique: 'unique_4' },
-      { id: 3, unique: 'unique_3' },
-      { id: 2, unique: 'unique_2' },
-      { id: 1, unique: 'unique_1' },
-      { id: 0, unique: 'unique_0' },
-    ]
+    prolist: []
   },
 
-  apply:function(){
+  apply:function(event){
+    console.log(event)
     wx.navigateTo({
-      url: '../apply/apply',
+      url: '../apply/apply?cardId='+event.target.dataset.cardid,
     })
   },
 
@@ -25,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    getData(this);
   },
 
   /**
@@ -75,5 +71,28 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  
+
 })
+
+/**
+   * 网络请求
+   */
+function getData(that) {
+  wx.request({
+    url: constant.cardList,
+    success: function (res) {
+      console.log("====成功")
+      console.log(res)
+      that.setData({
+        prolist:res.data.prolist
+      })
+    },
+    fail: function (res) {
+      console.log("====失败")
+      console.log(res)
+    }
+
+  })
+}

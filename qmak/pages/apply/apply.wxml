@@ -34,8 +34,9 @@
   <view class='detail_container'>
     <view class='detail_head'>
       <view class='detail_labebl'></view>
-      贷款详情
+      详情
     </view>
+    <text class='desc_txt'>{{proinfo.description}}</text>
   </view>
 
 

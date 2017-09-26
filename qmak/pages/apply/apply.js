@@ -1,4 +1,6 @@
 // pages/apply/apply.js
+var constant = require('../../utils/constant');
+
 Page({
 
   /**
@@ -13,7 +15,7 @@ Page({
     index:0,
     isShowType:false,
     array: ['美国', '中国', '巴西', '日本'],
-
+    proinfp:""
   },
 
   bindPickerChange: function (e) {
@@ -28,7 +30,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options)
+    getData(this,options.cardId)
   },
 
   /**
@@ -80,3 +83,26 @@ Page({
   
   }
 })
+
+
+
+/**
+   * 网络请求
+   */
+function getData(that,cardid) {
+  wx.request({
+    url: constant.proinfo.concat(cardid),
+    success: function (res) {
+      console.log("====成功")
+      console.log(res)
+      that.setData({
+        proinfo:res.data.proinfo[0]
+      })
+    },
+    fail: function (res) {
+      console.log("====失败")
+      console.log(res)
+    }
+
+  })
+}

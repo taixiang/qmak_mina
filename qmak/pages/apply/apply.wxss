@@ -92,3 +92,7 @@ flex-direction: column
   margin-right: 10rpx;
 
 }
+.desc_txt{
+   margin-top: 25rpx; 
+  display: flex
+}
