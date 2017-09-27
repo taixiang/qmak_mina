@@ -27,7 +27,7 @@
     </view>
   </picker> 
   </view>
-  <view class='order_container'>免费预约</view>
+  <view class='order_container' bindtap='submitMsg'>免费预约</view>
 
   <view class='line_view'></view>
 

@@ -1,5 +1,6 @@
 // pages/me/me.js
-const app = getApp()
+const app = getApp();
+var constant = require("../../utils/constant");
 
 Page({
 
@@ -7,14 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    objectArray: [
-      { id: 5, unique: 'unique_5' },
-      { id: 4, unique: 'unique_4' },
-      { id: 3, unique: 'unique_3' },
-      { id: 2, unique: 'unique_2' },
-      { id: 1, unique: 'unique_1' },
-      { id: 0, unique: 'unique_0' },
-    ],
+    applist: [],
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -50,13 +44,15 @@ Page({
         }
       })
     }
+
+    getData(this,"ogpJxxLDAc5xTO1NGHtkvkzKy1vw");
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+      
   },
 
   /**
@@ -109,3 +105,24 @@ Page({
     })
   }
 })
+
+/**
+   * 网络请求
+   */
+function getData(that,openId) {
+  wx.request({
+    url: constant.userRecord + openId,
+    success: function (res) {
+      console.log("====成功")
+      console.log(res)
+      that.setData({
+        applist:res.data.applist
+      })
+    },
+    fail: function (res) {
+      console.log("====失败")
+      console.log(res)
+    }
+
+  })
+}

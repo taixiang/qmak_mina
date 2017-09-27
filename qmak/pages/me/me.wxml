@@ -9,12 +9,12 @@
   </view>
   <view class='line_view'></view>
 
-  <view wx:for="{{objectArray}}" wx:for-index="idx" wx:for-item="itemName" wx:key="id">
+  <view wx:for="{{applist}}" wx:for-index="idx" wx:for-item="item" wx:key="id">
     <view class='list_item'>
       <view class='title_container'>
         <image src='../../image/l1.png' class='left_img'></image>
         <image src='../../image/r1.png' class='card_img'></image>
-        <text class='txt_title'>行用卡贷款</text>
+        <text class='txt_title'>{{item.pro_name}}</text>
         <image src='../../image/l2.png' class='right_img'></image>
       </view>
 
@@ -22,19 +22,19 @@
         <view class='l_container'>
           <view class='left_con'>
             <image src='../../image/r6.png' class='icon_user'></image>
-            <text class='user_name'>姓名</text>
+            <text class='user_name'>姓名：{{item.customer_name}}</text>
           </view>
           <view class='right_con'>
             <image src='../../image/r7.png' class='icon_phone'></image>
-            <text class='user_name'>手机</text>
+            <text class='user_name'>手机：{{item.customer_phone}}</text>
           </view>
         </view>
         <view class='iden_con'>
           <image src='../../image/r8.png' class='icon_iden'></image>
-          <text class='user_name'>身份证</text>
+          <text class='user_name'>身份证：{{item.customer_remark}}</text>
         </view>
           <view class='line_view'></view>
-        <text class='time'>申请时间</text>
+        <text class='time'>申请时间 {{item.createdate}}</text>
       </view>
 
     <view class='line_view_bottom'></view>

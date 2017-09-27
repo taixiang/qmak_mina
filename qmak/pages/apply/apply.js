@@ -26,6 +26,10 @@ Page({
     })
   },
 
+  submitMsg:function(){
+    submit(this,13);
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -87,7 +91,7 @@ Page({
 
 
 /**
-   * 网络请求
+   * 网络请求 信用卡详情
    */
 function getData(that,cardid) {
   wx.request({
@@ -104,5 +108,51 @@ function getData(that,cardid) {
       console.log(res)
     }
 
+  })
+}
+
+/**
+ * 贷款类型
+ */
+function getApplyType(that, cardid) {
+  wx.request({
+    url: constant.applyType,
+    success: function (res) {
+      console.log("====成功")
+      console.log(res)
+      that.setData({
+        proinfo: res.data.proinfo[0]
+      })
+    },
+    fail: function (res) {
+      console.log("====失败")
+      console.log(res)
+    }
+
+  })
+}
+
+//提交
+function submit(that,id){
+  wx.request({
+    url: constant.proSubmit + id +"&name=周文凯&phone=13625299977&cardid=320882198612232611&check_code=&openid=ogpJxxLDAc5xTO1NGHtkvkzKy1vw",
+    // method:"POST",
+    // data:{
+    //   id:13,
+    //   name:"周文凯",
+    //   phone:"13625299977",
+    //   cardid:"320882198612232611",
+    //   check_code:"",
+    //   openid:"ogpJxxLDAc5xTO1NGHtkvkzKy1vw"
+    // },
+    success: function (res) {
+      console.log("====成功")
+      console.log(res)
+      
+    },
+    fail: function (res) {
+      console.log("====失败")
+      console.log(res)
+    }
   })
 }
