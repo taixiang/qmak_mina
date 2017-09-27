@@ -12,12 +12,13 @@ App({
         console.log("====登录")
         console.log(res)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        getData(this,res.code)
+        getOpenId(this,res.code)
       }
     })
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
@@ -32,54 +33,30 @@ App({
               }
             }
           })
+        }
+          
       }
     })
 
-
-
-    // if (this.globalData.userInfo) {
-    //   this.setData({
-    //     userInfo: this.globalData.userInfo,
-    //     hasUserInfo: true
-    //   })
-    // } else if (this.data.canIUse) {
-    //   // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-    //   // 所以此处加入 callback 以防止这种情况
-    //   this.userInfoReadyCallback = res => {
-    //     this.setData({
-    //       userInfo: res.userInfo,
-    //       hasUserInfo: true
-    //     })
-    //   }
-    // } else {
-    //   // 在没有 open-type=getUserInfo 版本的兼容处理
-    //   wx.getUserInfo({
-    //     success: res => {
-    //       this.globalData.userInfo = res.userInfo
-    //       this.setData({
-    //         userInfo: res.userInfo,
-    //         hasUserInfo: true
-    //       })
-    //     }
-    //   })
-    // }
-
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    openId:"",
   }
 })
 
 /**
-   * 网络请求
+   * 网络请求openid
    */
-function getData(that,jscode) {
+function getOpenId(that,jscode) {
   wx.request({
     url: "https://api.weixin.qq.com/sns/jscode2session?appid=wx4ba7103c2716111c&secret=15f5b9147542ac225becb1bc3802cbac&js_code="+jscode+"&grant_type=authorization_code",
     success: function (res) {
       console.log("====成功")
       console.log(res)
-      
+      that.globalData.openId = res.data.openid
+      console.log("====openid" + that.globalData.openId )
+
     },
     fail: function (res) {
       console.log("====失败")

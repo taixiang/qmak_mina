@@ -40,7 +40,7 @@
   width: 80%;
   display: flex;
   align-items: center;
-  margin-top: 30rpx;
+  margin-top: 10rpx;
 }
 
 .radio_group {
@@ -95,4 +95,14 @@ flex-direction: column
 .desc_txt{
    margin-top: 25rpx; 
   display: flex
+}
+
+.txt_pro{
+  display: flex;
+
+}
+.checkbox{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx
 }

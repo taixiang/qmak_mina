@@ -8,13 +8,13 @@ Page({
    */
   data: {
     items: [
-      { name: 'USA', value: '美国' },
-      { name: 'CHN', value: '中国', checked: 'true' },
-      { name: 'BRA', value: '巴西' },
+      { name: '公积金贷款', value: '公积金贷款', checked: 'true'  },
+      { name: '打卡工资贷款', value: '打卡工资贷款'},
+      { name: '按揭房贷贷款', value: '按揭房贷贷款' },
     ],
     index:0,
     isShowType:false,
-    array: ['美国', '中国', '巴西', '日本'],
+    array: ['公积金贷款', '打卡工资贷款', '按揭房贷贷款'],
     proinfp:""
   },
 
@@ -26,8 +26,12 @@ Page({
     })
   },
 
+  //提交
   submitMsg:function(){
-    submit(this,13);
+    wx.showToast({
+      title: '提交成功'
+    })
+    // submit(this,13);
   },
 
   /**
@@ -136,15 +140,6 @@ function getApplyType(that, cardid) {
 function submit(that,id){
   wx.request({
     url: constant.proSubmit + id +"&name=周文凯&phone=13625299977&cardid=320882198612232611&check_code=&openid=ogpJxxLDAc5xTO1NGHtkvkzKy1vw",
-    // method:"POST",
-    // data:{
-    //   id:13,
-    //   name:"周文凯",
-    //   phone:"13625299977",
-    //   cardid:"320882198612232611",
-    //   check_code:"",
-    //   openid:"ogpJxxLDAc5xTO1NGHtkvkzKy1vw"
-    // },
     success: function (res) {
       console.log("====成功")
       console.log(res)
