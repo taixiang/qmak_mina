@@ -1,23 +1,19 @@
 // pages/notice/notice.js
+var constant = require("../../utils/constant");
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    objectArray: [
-      { id: 5, unique: 'unique_5' },
-      { id: 4, unique: 'unique_4' },
-      { id: 3, unique: 'unique_3' },
-      { id: 2, unique: 'unique_2' },
-      { id: 1, unique: 'unique_1' },
-      { id: 0, unique: 'unique_0' },
-    ]
+    noticeList: [ ]
   },
 
-  todetail:function(){
+  todetail:function(e){
+    console.log(e)
     wx.navigateTo({
-      url: '../noticedetail/noticedetail',
+      url: '../noticedetail/noticedetail?newsid='+e.currentTarget.dataset.newsid,
     })
   },
 
@@ -25,7 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      getData(this)
   },
 
   /**
@@ -77,3 +73,25 @@ Page({
   
   }
 })
+
+
+/**
+   * 网络请求
+   */
+function getData(that) {
+  wx.request({
+    url: constant.noticeList,
+    success: function (res) {
+      console.log("====成功")
+      console.log(res)
+      that.setData({
+        noticeList: res.data.noticelist
+      })
+    },
+    fail: function (res) {
+      console.log("====失败")
+      console.log(res)
+    }
+
+  })
+}

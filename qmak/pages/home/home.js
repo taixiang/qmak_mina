@@ -10,13 +10,13 @@ Page({
 
   tocardlist:function(){
     wx.navigateTo({
-      url: '../cardlist/cardlist',
+      url: '../cardlist/cardlist?id=1',
     })
   },
 
   toapply:function(){
     wx.navigateTo({
-      url: '../apply/apply',
+      url: '../cardlist/cardlist?id=2',
     })
   },
 

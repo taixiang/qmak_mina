@@ -1,18 +1,20 @@
 // pages/noticedetail/noticedetail.js
+var constant = require("../../utils/constant");
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    notice:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    getData(this, options.newsid)
   },
 
   /**
@@ -64,3 +66,26 @@ Page({
   
   }
 })
+
+
+
+/**
+   * 网络请求
+   */
+function getData(that,id) {
+  wx.request({
+    url: constant.noticeDetail+id,
+    success: function (res) {
+      console.log("====成功")
+      console.log(res)
+      that.setData({
+        notice: res.data.noticedetails
+      })
+    },
+    fail: function (res) {
+      console.log("====失败")
+      console.log(res)
+    }
+
+  })
+}

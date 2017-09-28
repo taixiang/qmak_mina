@@ -21,7 +21,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    getData(this);
+    console.log(options)
+    getData(this, options.id);
   },
 
   /**
@@ -79,9 +80,9 @@ Page({
 /**
    * 网络请求
    */
-function getData(that) {
+function getData(that,id) {
   wx.request({
-    url: constant.cardList,
+    url: constant.cardList+id,
     success: function (res) {
       console.log("====成功")
       console.log(res)

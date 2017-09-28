@@ -1,5 +1,6 @@
 // pages/apply/apply.js
 var constant = require('../../utils/constant');
+const app = getApp();
 
 Page({
 
@@ -15,7 +16,11 @@ Page({
     index:0,
     isShowType:false,
     array: ['公积金贷款', '打卡工资贷款', '按揭房贷贷款'],
-    proinfp:""
+    proinfp:"",
+    name:"",
+    phone:"",
+    cardId:"",
+    proId:""
   },
 
   bindPickerChange: function (e) {
@@ -26,12 +31,54 @@ Page({
     })
   },
 
+  bindName:function(e){
+    console.log(e)
+    this.setData({
+      name:e.detail.value
+    })
+  },
+
+  bindPhone: function (e) {
+    console.log(e)
+    this.setData({
+      phone: e.detail.value
+    })
+  },
+
+  bindidcard:function(e){
+    console.log(e)
+    this.setData({
+      cardId: e.detail.value
+    })
+  },
+
   //提交
   submitMsg:function(){
-    wx.showToast({
-      title: '提交成功'
-    })
-    // submit(this,13);
+
+    if (this.data.name.trim().length <= 0){
+      wx.showToast({
+        title: '姓名不能为空'
+      })
+      return
+    }
+
+    if (this.data.phone.trim().length <= 0) {
+      wx.showToast({
+        title: '手机号不能为空'
+      })
+      return
+    }
+
+    if (this.data.cardId.trim().length <= 0) {
+      wx.showToast({
+        title: '身份证不能为空'
+      })
+      return
+    }
+
+    console.log(this.data.proId + "  " + this.data.name + "  " + this.data.phone + "  " + this.data.cardId + "   " + app.globalData.openId)
+
+    submit(this, this.data.proId, this.data.name, this.data.phone, this.data.cardId, app.globalData.openId);
   },
 
   /**
@@ -39,6 +86,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    this.setData({
+      proId: options.cardId
+    })
     getData(this,options.cardId)
   },
 
@@ -137,12 +187,21 @@ function getApplyType(that, cardid) {
 }
 
 //提交
-function submit(that,id){
+function submit(that,id,name,phone,cardid,openid){
   wx.request({
-    url: constant.proSubmit + id +"&name=周文凯&phone=13625299977&cardid=320882198612232611&check_code=&openid=ogpJxxLDAc5xTO1NGHtkvkzKy1vw",
+    url: constant.proSubmit + id + "&name=" + name + "&phone=" + phone + "&cardid=" + cardid + "&check_code=&openid=" + openid,
     success: function (res) {
       console.log("====成功")
       console.log(res)
+
+      wx.showToast({
+        title: '提交成功',
+      })
+      setTimeout(()=>{
+        wx.switchTab({
+          url: '../me/me',
+        })
+      },1200);
       
     },
     fail: function (res) {

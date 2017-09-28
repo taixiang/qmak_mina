@@ -3,30 +3,19 @@
   <view class='name_container'>
     <text class='name_txt'>姓名</text>
     <view class='line_v'></view>
-    <input class='name_input' placeholder='请输入您的姓名'></input>
+    <input class='name_input' bindinput='bindName' placeholder='请输入您的姓名'></input>
   </view>
   <view class='phone_container'>
     <text class='phone_txt'>手机号</text>
     <view class='line_v'></view>
-    <input class='phone_input' placeholder='请输入您的手机号'></input>
+    <input class='phone_input' bindinput='bindPhone'  type='number' placeholder='请输入您的手机号'></input>
   </view>
-  <view class='property_container'>
-    <text class='txt_pro'>性质</text>
-    <radio-group class="radio_group">
-      <label class="checkbox" wx:for="{{items}}" wx:key="{{name}}">
-        <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
-      </label>
-    </radio-group>
-  </view>
-  <view class='type_container'>
-    <text class='type_txt'>贷款类型</text>
+<view class='phone_container'>
+    <text class='phone_txt'>身份证</text>
     <view class='line_v'></view>
-     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-    <view class="picker_view">
-      {{isShowType?array[index]:"请选择贷款类型"}}
-    </view>
-  </picker> 
+    <input class='phone_input' bindinput='bindidcard' type='idcard' placeholder='请输入您的身份证'></input>
   </view>
+
   <view class='order_container' bindtap='submitMsg'>免费预约</view>
 
   <view class='line_view'></view>

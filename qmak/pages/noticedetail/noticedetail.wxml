@@ -1,12 +1,12 @@
 <!--pages/noticedetail/noticedetail.wxml-->
 
 <view class='detail'>
-    <text class='title'>公告标题
+    <text class='title'>{{notice.title}}
     </text>
-    <text class='txt_time'>时间
+    <text class='txt_time'>{{notice.updatetime}}
     </text>
     <view class='line_view'></view>
-    <text class='txt_desc'>公告
+    <text class='txt_desc'>{{notice.description}}
     </text>
 
   </view>

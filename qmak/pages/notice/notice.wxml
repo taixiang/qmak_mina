@@ -1,12 +1,12 @@
 <!--pages/notice/notice.wxml-->
-<view wx:for="{{objectArray}}" wx:for-index="idx" wx:for-item="itemName" wx:key="id">
-  <view class='list_item' bindtap='todetail'>
-    <text class='title'>公告标题
+<view wx:for="{{noticeList}}" wx:for-index="idx" wx:for-item="item" wx:key="id">
+  <view class='list_item' bindtap='todetail' data-newsid='{{item.newsid}}'>
+    <text class='title'>{{item.title}}
     </text>
-    <text class='txt_time'>时间
+    <text class='txt_time'>{{item.updatetime}}
     </text>
     <view class='line_view'></view>
-    <text class='txt_desc'>公告
+    <text class='txt_desc'>{{item.info}}
     </text>
     <view class='line_view_bottom'></view>
   </view>
