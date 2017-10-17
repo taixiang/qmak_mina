@@ -1,4 +1,4 @@
-var baseUrl = "http://www.szqmak.com/Handler/ApI.ashx?";
+var baseUrl = "https://s.szqmak.com/Handler/ApI.ashx?";
 module.exports = {
   cardList: baseUrl.concat('action=prolist&type_id='), //列表
   proinfo: baseUrl.concat('action=proinfo&id='), //信用卡信息
