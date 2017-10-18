@@ -6,6 +6,13 @@
   align-items: center;
 }
 
+.tip{
+  display: flex;
+  font-size: 25rpx;
+  align-items: center;
+  justify-content: center;
+}
+
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;

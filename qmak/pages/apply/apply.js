@@ -193,15 +193,21 @@ function submit(that,id,name,phone,cardid,openid){
     success: function (res) {
       console.log("====成功")
       console.log(res)
-
-      wx.showToast({
-        title: '提交成功',
-      })
-      setTimeout(()=>{
-        wx.switchTab({
-          url: '../me/me',
+      if(res.data.result == "true"){
+        wx.showToast({
+          title: '提交成功',
         })
-      },1200);
+        setTimeout(() => {
+          wx.switchTab({
+            url: '../home/home',
+          })
+        }, 1200);
+      }else{
+        wx.showToast({
+          title: '异常错误',
+        })
+      }
+      
       
     },
     fail: function (res) {

@@ -9,6 +9,8 @@
   </view>
   <view class='line_view'></view>
 
+  <view class='tip'>暂未显示记录，提交后工作人员会与您保持联络</view>
+
   <view wx:for="{{applist}}" wx:for-index="idx" wx:for-item="item" wx:key="id">
     <view class='list_item'>
       <view class='title_container'>
