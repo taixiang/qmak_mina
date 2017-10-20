@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    prolist: []
+    prolist: [],
+    optionId:1
   },
 
   apply:function(event){
@@ -22,6 +23,9 @@ Page({
    */
   onLoad: function (options) {
     console.log(options)
+    this.setData({
+      optionId: options.id
+    })
     getData(this, options.id);
   },
 
@@ -29,6 +33,9 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    wx.setNavigationBarTitle({
+      title: this.data.optionId == "1" ? "信用卡申请":"网络平台贷款",
+    })
   
   },
 

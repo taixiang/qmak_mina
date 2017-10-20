@@ -189,7 +189,7 @@ function getApplyType(that, cardid) {
 //提交
 function submit(that,id,name,phone,cardid,openid){
   wx.request({
-    url: constant.proSubmit + id + "&name=" + name + "&phone=" + phone + "&cardid=" + cardid + "&check_code=&openid=" + openid,
+    url: constant.proSubmit + id + "&name=" + name + "&phone=" + phone + "&cardid=" + cardid + "&check_code=&openid=" + "",
     success: function (res) {
       console.log("====成功")
       console.log(res)
@@ -204,7 +204,7 @@ function submit(that,id,name,phone,cardid,openid){
         }, 1200);
       }else{
         wx.showToast({
-          title: '异常错误',
+          title: res.data.msg,
         })
       }
       
